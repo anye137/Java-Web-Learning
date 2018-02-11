@@ -11,7 +11,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {  
         
         HttpSession session = request.getSession();
-        session.setAttribute("name", request.getParameter("name"));
+        session.setAttribute("userName", request.getParameter("userName"));
         response.sendRedirect("jsp/afterLogin.jsp");
     }  
   

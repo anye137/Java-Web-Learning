@@ -36,7 +36,7 @@ public class OutputReplaceFilter implements Filter {
 	public void destroy() {}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("replace");
+		
 	    HttpServletResponse res = (HttpServletResponse)response;
 	    //使用自定义response
 	    OutputReplaceResponse orr = new OutputReplaceResponse(res);

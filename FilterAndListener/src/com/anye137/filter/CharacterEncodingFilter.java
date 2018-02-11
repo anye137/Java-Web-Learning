@@ -53,15 +53,21 @@ public class CharacterEncodingFilter implements Filter {
 	    }
 	    @Override
 	    public String getParameter(String name){
-	        String value = req.getParameter(name);
-	        if(req.getMethod().equalsIgnoreCase("GET")){
-	            try{
-	                value = new String(value.getBytes("ISO-8859-1"),"utf-8");
-	            }catch(UnsupportedEncodingException e){
-	                e.printStackTrace();
-	            }
-	        }
-	        return value;
+	        String value = null;	        
+	        if(req!=null){
+	            value = req.getParameter(name);
+	            if(req.getMethod().equalsIgnoreCase("GET")){
+	                value = req.getParameter(name);
+	                if(value!=null){
+	                    try{
+	                        value = new String(value.getBytes("ISO-8859-1"),"utf-8");
+	                    }catch(UnsupportedEncodingException e){
+	                        e.printStackTrace();
+	                    }
+	                }
+	            }   
+	        }           
+	        return value;	        	       
 	    }
 	}
 

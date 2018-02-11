@@ -6,7 +6,10 @@
 <title></title>
 </head>
 <body>
-用户名： <%= session.getAttribute("name") %>
-您已成功登陆
+
+    <form action="${pageContext.request.contextPath}/loginServlet" method="post">
+        姓名：<input type="text"  name="userName"/><br>
+        <input type="submit" value="登录"/><br>
+    </form>
 </body>
 </html>

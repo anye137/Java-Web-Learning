@@ -16,7 +16,7 @@ public class PrivilegeFilter implements Filter{
         HttpServletResponse res = (HttpServletResponse)response;
         HttpSession session = req.getSession();
         
-        String name = (String) session.getAttribute("name");
+        String name = (String) session.getAttribute("userName");
         if(name==null || name.trim().equals(""))
             res.sendRedirect(req.getContextPath()+"/jsp/login.jsp");
         else
