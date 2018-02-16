@@ -12,7 +12,7 @@ import domain.User;
 import service.UserService;
 
 @WebServlet("/registerServlet")
-public class registerServlet extends HttpServlet{
+public class RegisterServlet extends HttpServlet{
 
     private UserService us = new UserService();
     public void service(HttpServletRequest request,HttpServletResponse response) 

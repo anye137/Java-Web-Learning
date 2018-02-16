@@ -26,3 +26,9 @@ some notes and code about Java Web
 使用 servlet+jsp+jdbc+mysql
 
 博客链接
+
+[简单商品管理系统（上）](https://anye137.github.io/2018/java-web-product-management-1/)
+
+[简单商品管理系统（下）](https://anye137.github.io/2018/java-web-product-management-2/)
+
+<br>
