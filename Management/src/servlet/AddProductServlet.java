@@ -18,13 +18,17 @@ public class AddProductServlet extends HttpServlet{
     public void service(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException{
         
-        Product p = new Product();
+        //设置编码
         request.setCharacterEncoding("utf-8");
+        
         String name = request.getParameter("name");
         float price = Float.parseFloat(request.getParameter("price"));
        
+        Product p = new Product();
         p.setName(name);
         p.setPrice(price);
+        
+        //增加商品
         ps.addProduct(p);
         
         response.sendRedirect("listProduct");

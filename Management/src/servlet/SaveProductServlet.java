@@ -17,18 +17,18 @@ public class SaveProductServlet extends HttpServlet{
     private ProductService ps = new ProductService();
     public void service(HttpServletRequest request,HttpServletResponse response)
         throws ServletException,IOException{
-        request.setCharacterEncoding("utf-8");
-        //System.out.println(request.getParameter("id"));
-        //System.out.println(request.getParameter("name"));
-        //System.out.println(request.getParameter("price"));
         
-        Product p = new Product();
+        request.setCharacterEncoding("utf-8");
+        
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         float price = Float.parseFloat(request.getParameter("price"));
+        
+        Product p = new Product();
         p.setId(id);
         p.setName(name);
         p.setPrice(price);
+        
         ps.updateProduct(p);
         
         response.sendRedirect("listProduct");

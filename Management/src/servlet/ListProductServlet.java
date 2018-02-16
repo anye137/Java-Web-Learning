@@ -17,9 +17,11 @@ public class ListProductServlet extends HttpServlet{
     @Override
     public void service(HttpServletRequest request,HttpServletResponse response)
         throws ServletException,IOException{
+        
         List<Product> plist = ps.listProduct();
         request.setAttribute("plist", plist);
         
+        //Ìø×ªµ½ listProduct.jsp
         request.getRequestDispatcher("listProduct.jsp").forward(request, response);
     }
 }

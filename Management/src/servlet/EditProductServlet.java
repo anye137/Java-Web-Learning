@@ -19,9 +19,10 @@ public class EditProductServlet extends HttpServlet{
         throws ServletException,IOException{
         
         int id = Integer.parseInt(request.getParameter("id"));
+        //根据id查找商品
         Product p = ps.findProductById(id);
-        request.setAttribute("product", p);
         
+        request.setAttribute("product", p);      
         request.getRequestDispatcher("editProduct.jsp").forward(request, response);
     }
 }

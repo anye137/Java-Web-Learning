@@ -8,17 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.ProductService;
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet{
 
-@WebServlet("/deleteProduct")
-public class DeleteProductServlet extends HttpServlet{
-
-    private ProductService ps = new ProductService();
     public void service(HttpServletRequest request,HttpServletResponse response)
         throws ServletException,IOException{
         
-        ps.deleteProduct(Integer.parseInt(request.getParameter("id")));
-        //删除后跳转到展示商品的界面
-        response.sendRedirect("listProduct");
+        request.getSession().removeAttribute("user");
+        response.sendRedirect("loginOrRegister.jsp");
     }
 }

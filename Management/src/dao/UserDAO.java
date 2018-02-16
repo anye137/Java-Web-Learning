@@ -1,18 +1,20 @@
 package dao;
 import domain.User;
-
 import java.sql.DriverManager;
-
 import java.sql.*;
 public class UserDAO {
+  
+    //封装获取数据库连接的方法
     public Connection getConnection() throws SQLException{
-        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        
+      
+        DriverManager.registerDriver(new com.mysql.jdbc.Driver());               
         Connection conn = DriverManager.getConnection(
           "jdbc:mysql://localhost:3306/management?characterEncoding=utf-8",
-          "root","duyiwuexcc");
+          "root","admin");
         return conn;
-    }
+    } 
+  
+    //增加用户，并返回新增的用户对象
     public User addUser(User u){
         Connection conn = null;
         PreparedStatement preStmt = null;
@@ -21,7 +23,9 @@ public class UserDAO {
         String sql = "insert into user (name,pwd) values (?,?)";
         try{
             conn = getConnection();
+            //第二个参数表明支持获取新增数据的id
             preStmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+          
             preStmt.setString(1, u.getName());
             preStmt.setString(2, u.getPwd());
             
@@ -46,6 +50,8 @@ public class UserDAO {
         }
         return user;
     }
+  
+    //根据用户名和密码查找用户
     public User findUser(String name,String pwd){
         User u = null;
         Connection conn =null;
